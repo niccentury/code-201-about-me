@@ -1,4 +1,31 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    width: 750px;
+    height: 600px;
+    margin: 10px auto 10px auto;
+    border: 5px double darkgray;
+}
+
 h1{
     text-align: center;
     color: red;
+    padding: 25px 0 25px 0;
+    width: 500px;
+    margin: 0 auto;
+    border-bottom: 4px solid black;
+}
+
+h2{
+    text-align: center;
+}
+article{
+    width: 500px;
+    margin: 25px auto 25px auto;
+    padding: 25px 0 25px 0;
+}
+
+li{
+    font-size: 20px;
+    padding: 5px;
 }
