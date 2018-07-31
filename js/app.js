@@ -1,12 +1,24 @@
 "use strict";
 
 console.log('js is linked');
+
+//commence game
 alert('Hey there!  Let\'s play a little game.');
 
+//First Question
 var q1 = prompt('Do I know how to speak Spanish?');
 console.log('The answer to question one is: '+q1)
+
+//Check First Question
 var isTrue = check(q1);
 console.log('**This is the return from check function for q1: '+isTrue);
+
+//First Response
+if(isTrue == 'Yes'){
+    alert('You are correct!');
+}else{
+    alert('NOPE!');
+}
 
 // var q2 = prompt('Did I originally live in Texas?');
 // console.log('The answer to question one is: '+q2)
@@ -29,13 +41,14 @@ console.log('**This is the return from check function for q1: '+isTrue);
 //     //    q1 = 'Yes'
 //     }
 
- function check(answer){
+function check(answer){
     console.log('This is the answer within the function: '+answer);
-    console.log(answer.toUpperCase());
     var newAnswer = answer.toUpperCase();
     if(newAnswer == 'YES' || newAnswer == 'Y'){
         return 'Yes';
     }else if(newAnswer == 'NO' || newAnswer == 'N'){
         return 'No';
+    }else{ 
+        return null; 
     }
 }
