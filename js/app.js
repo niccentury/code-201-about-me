@@ -4,14 +4,15 @@ console.log('js is linked');
 var score = 0;
 var answer = [];
 var randNum = Math.floor((Math.random() * 10) + 1);
-var compare = [1, 1, 0, 1, 1, randNum];
+var compare = [1, 1, 0, 1, 1, randNum, ['HOUSTON', 'AUSTIN', 'CONROE']];
 var questions = [
   'Do I know how to speak Spanish?',
   'Did I originally live in Texas?',
   'Is my favorite food fish sticks?',
   'Do I drink a questionable amount of coffee?',
   'Can you get me to do anything by bribing me with snacks?',
-  'Guess a number between 1 and 10'
+  'Guess a number between 1 and 10',
+  'Which city in Texas have I lived in?'
 ];
 
 
@@ -47,9 +48,9 @@ for(var i=0; i<questions.length; i++){
       }
     }else{  //Responds if answer is not yes or no
       alert('That wasn\'t a proper answer.  Maybe check your spelling!');
-    }   
+    }
   }
-  else{
+  else if(i===5){
     console.log('The random number is: '+compare[i]);
     if(isNaN(newAnswer)){
       alert('That wasn\'t even a number! Get with it, '+userName+'!');
@@ -63,8 +64,28 @@ for(var i=0; i<questions.length; i++){
         console.log('The current score is: ' +score);
       }
     }
+  }else{
+    console.log('Cities in Texas: '+compare[i]);
+    for(var j=0; j<compare[i].length; j++){
+      console.log('This is one of the cities: '+compare[i][j]);
+      if(newAnswer === compare[i][j]){
+        alert('You are correct!');
+        score++;
+        console.log('The current score is: ' +score);
+        break;
+      }else if(j===compare[i].length-1){
+        alert('Nope!');
+        console.log('The current score is: ' +score);
+        continue;
+      }
+    }
   }
 }
 //Displays the answer array
 console.log(answer);
-alert('You got '+score+' out of 6 correct, '+userName+'!');
+if(score<questions.length){
+  alert('You got '+score+' out of 7 correct, '+userName+'! You can do better than that!');
+}else{
+  alert('You got '+score+' out of 7 correct, '+userName+'! A perfect score!');
+}
+
