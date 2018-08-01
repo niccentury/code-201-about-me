@@ -7,7 +7,7 @@ var randNum = Math.floor((Math.random() * 10) + 1);
 var compare = [1, 1, 0, 1, 1, randNum, ['HOUSTON', 'AUSTIN', 'CONROE']];
 var questions = [
   'Do I know how to speak Spanish?',
-  'Did I originally live in Texas?',
+  'Do I have a French Bulldog named Manolo?',
   'Is my favorite food fish sticks?',
   'Do I drink a questionable amount of coffee?',
   'Can you get me to do anything by bribing me with snacks?',
@@ -52,7 +52,7 @@ for(var i=0; i<questions.length; i++){
   else if(i===5){
     console.log('The random number is: '+compare[i]);
     for(var x = 0; x<4; x++){ //allows for 4 tries
-      if(x>0){
+      if(x>0 && x<4){
         newAnswer= prompt(questions[i]).toUpperCase();
       }
       if(newAnswer == compare[i]){
@@ -63,7 +63,7 @@ for(var i=0; i<questions.length; i++){
       }else if(isNaN(newAnswer)){
         alert('That wasn\'t even a number! Get with it, '+userName+'! You have '+(3-x)+' tries left!');
       }else{
-        alert('Nope! Try Again! You have '+(3-x)+' tries left!');
+        alert('Nope! You have '+(3-x)+' tries left!');
         console.log('The current score is: ' +score);
       }
     }
@@ -71,7 +71,7 @@ for(var i=0; i<questions.length; i++){
   else{
     console.log('Cities in Texas: '+compare[i]);
     for(var y = 0; y<6 ; y++){  // allows for 6 tries
-      if(y>0){
+      if(y > 0){
         newAnswer= prompt(questions[i]).toUpperCase();
       }
       for(var j=0; j<compare[i].length; j++){
