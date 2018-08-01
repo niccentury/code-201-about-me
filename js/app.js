@@ -34,8 +34,8 @@ function check(answer){
         return 1;
     }else if(newAnswer == 'NO' || newAnswer == 'N'){
         return 0;
-    }else{ 
-        return null; 
+    }else{
+        return null;
     }
 }
 
