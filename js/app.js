@@ -24,7 +24,6 @@ alert('Hey there, '+ userName +'!  Let\'s play a little game.');
 //Runs through each question
 for(var i=0; i<questions.length; i++){
   var newAnswer= prompt(questions[i]).toUpperCase();
-  answer[i] = newAnswer;
   console.log('The user input is: '+answer[i]);
   if(i < 5){
     //Checks if answer matches yes
@@ -52,19 +51,24 @@ for(var i=0; i<questions.length; i++){
   }
   else if(i===5){
     console.log('The random number is: '+compare[i]);
-    if(isNaN(newAnswer)){
-      alert('That wasn\'t even a number! Get with it, '+userName+'!');
-    }else{
-      if(newAnswer === compare[i]){
+    for(var x = 0; x<4; x++){
+      if(x>0){
+        newAnswer= prompt(questions[i]).toUpperCase();
+      }
+      if(newAnswer == compare[i]){
         alert('You are correct!');
         score++;
         console.log('The current score is: ' +score);
+        break;
+      }else if(isNaN(newAnswer)){
+        alert('That wasn\'t even a number! Get with it, '+userName+'! You have '+(3-x)+' tries left!');
       }else{
-        alert('Nope!');
+        alert('Nope! You have '+(3-x)+' tries left!');
         console.log('The current score is: ' +score);
       }
     }
-  }else{
+  }
+  else{
     console.log('Cities in Texas: '+compare[i]);
     for(var j=0; j<compare[i].length; j++){
       console.log('This is one of the cities: '+compare[i][j]);
@@ -82,7 +86,6 @@ for(var i=0; i<questions.length; i++){
   }
 }
 //Displays the answer array
-console.log(answer);
 if(score<questions.length){
   alert('You got '+score+' out of 7 correct, '+userName+'! You can do better than that!');
 }else{
