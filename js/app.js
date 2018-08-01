@@ -15,7 +15,6 @@ var questions = [
   'Which city in Texas have I lived in?'
 ];
 
-
 //Commence game
 var userName = prompt('Please enter your name: ');
 console.log('The user name is: '+userName);
@@ -49,9 +48,10 @@ for(var i=0; i<questions.length; i++){
       alert('That wasn\'t a proper answer.  Maybe check your spelling!');
     }
   }
+  //Sixth question checking for numbers
   else if(i===5){
     console.log('The random number is: '+compare[i]);
-    for(var x = 0; x<4; x++){
+    for(var x = 0; x<4; x++){ //allows for 4 tries
       if(x>0){
         newAnswer= prompt(questions[i]).toUpperCase();
       }
@@ -63,24 +63,32 @@ for(var i=0; i<questions.length; i++){
       }else if(isNaN(newAnswer)){
         alert('That wasn\'t even a number! Get with it, '+userName+'! You have '+(3-x)+' tries left!');
       }else{
-        alert('Nope! You have '+(3-x)+' tries left!');
+        alert('Nope! Try Again! You have '+(3-x)+' tries left!');
         console.log('The current score is: ' +score);
       }
     }
   }
   else{
     console.log('Cities in Texas: '+compare[i]);
-    for(var j=0; j<compare[i].length; j++){
-      console.log('This is one of the cities: '+compare[i][j]);
-      if(newAnswer === compare[i][j]){
-        alert('You are correct!');
-        score++;
-        console.log('The current score is: ' +score);
+    for(var y = 0; y<6 ; y++){  // allows for 6 tries
+      if(y>0){
+        newAnswer= prompt(questions[i]).toUpperCase();
+      }
+      for(var j=0; j<compare[i].length; j++){
+        if(newAnswer === compare[i][j]){
+          alert('You are correct!');
+          score++;
+          console.log('The current score is: ' +score);
+          var getOut = true;
+          break;
+        }else if(j===compare[i].length-1){
+          alert('Nope! Try Again! You have '+(5-y)+' tries left!');
+          console.log('The current score is: ' +score);
+          continue;
+        }
+      }
+      if(getOut){
         break;
-      }else if(j===compare[i].length-1){
-        alert('Nope!');
-        console.log('The current score is: ' +score);
-        continue;
       }
     }
   }
