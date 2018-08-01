@@ -14,7 +14,8 @@ var questions = [
 
 
 //Commence game
-alert('Hey there!  Let\'s play a little game.');
+var userName = prompt('Please enter your name: ');
+alert('Hey there, '+ userName +'!  Let\'s play a little game.');
 
 //Runs through each question
 for(var i=0; i<questions.length; i++){

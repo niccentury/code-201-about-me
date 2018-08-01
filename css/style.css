@@ -14,10 +14,13 @@ h1{
     width: 500px;
     margin: 0 auto;
     border-bottom: 4px solid black;
+    font-size: 30px;
 }
 
 h2{
     text-align: center;
+    font-size: 25px;
+    padding-bottom: 25px;
 }
 article{
     width: 500px;
@@ -28,4 +31,8 @@ article{
 li{
     font-size: 20px;
     padding: 5px;
+}
+
+ol{
+    list-style: decimal;
 }
