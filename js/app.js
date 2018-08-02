@@ -15,8 +15,12 @@ var questions = [
   'Which city in Texas have I lived in?'
 ];
 
+var userName = getName();
 //Commence game
-var userName = prompt('Please enter your name: ');
+function getName(){
+  var Name = prompt('What\'s your Name?');
+  return Name;
+}
 console.log('The user name is: '+userName);
 alert('Hey there, '+ userName +'!  Let\'s play a little game.');
 
